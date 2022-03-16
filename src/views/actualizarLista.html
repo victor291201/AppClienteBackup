@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head><%- include('partials/cabecera.html')%><</head>
+<body class="bgp1 d-flex align-items-center flex-column justify-content-center">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+    <h1 class="text-center mb-4">Agregar producto</h1>
+    <div class="card mb-5 p-3 cardl">
+        <form class="card-body" action="/actualizarLista/<%=id%>" method="POST">
+            <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Nombre del producto</label>
+                <input type="text" class="form-control" id="nombre" name="nombre">
+            </div>
+            <div class="mb-3">
+              <label for="tienda" class="form-label">Tienda</label>
+              <select id="tienda" name="tienda" class="form-select">
+                <% for(var i=0; i<lugares.length; i++) {%>
+                <option value="<%=lugares[i].id%>"><%=lugares[i].nombre %></option>
+                <%}%>
+              </select>
+            </div>        
+            <div class="mb-3">
+                <label for="costop" class="form-label">costo presupuestado</label>
+                <input type="text" class="form-control" id="costop" name="costop">
+            </div>
+            <div class="mb-3">
+                <label for="costor" class="form-label">costro real</label>
+                <input type="text" class="form-control" id="costor" name="costor">
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">descripcion</label>
+                <input type="text" class="form-control" id="descripcion" name="descripcion">
+            </div>
+            <div class="d-flex align-items-center justify-content-center">
+                <button type="submit" class="btn btn-success">Agregar</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+</div>
+</div>
+</body>

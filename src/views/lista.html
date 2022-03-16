@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head><%- include('partials/cabecera.html')%></head>
+
+<body class="bgp1 d-flex align-items-center flex-column p-5">
+    
+  <a href="/inicio" class="d-flex justify-content-center align-items-center flotantei" style="text-decoration:none">
+    <h2 class="btnp d-flex justify-content-center align-items-center pt-1" style="margin:0px">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-reply-fill" viewBox="0 0 16 16">
+            <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+          </svg>
+    </h2>
+</a>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 d-flex align-items-center flex-column">
+    <h3 class="mb-4 text-center"><%= nombre%></h3>
+    
+    <ul class="d-flex justify-content-start align-items-start flex-column px-4 py-1" style="width:100%;list-style:none;overflow:auto">
+        
+        <% for(var i=0; i<productos.length; i++) {%>
+            <li>
+                <div class="d-flex justify-content-between" style="width:1250px">
+                    <p style="width:170px"><%=productos[i].nombre%></p>
+                    <p style="width:170px"><%=productos[i].idlugar%></p>
+                    <p style="width:170px"><%=productos[i].descripcion%></p>
+                    <p style="width:170px"><%=productos[i].precioestimado%></p><p><%=productos[i].precioreal%></p>
+                    <div class="form-check d-flex" style="width:170px">
+                        <%if(productos[i].activo == 0){%>
+                            <form class="me-3" action="/adminM/<%=id%>/<%=productos[i].id%>" onclick="(this)=>{this.classList.add('none') document.getElementById('desm').classList.remove('none'),}" method="POST" id ="marc">
+                                <button style="width:40px" type="submit" >M</button>
+                            </form>
+                        <%}else{%>
+                        <form class="me-3" action="/adminD/<%=id%>/<%=productos[i].id%>" onclick="(this)=>{this.classList.add('none') document.getElementById('marc').classList.remove('none'),}" method="POST" id="desm">
+                            <button  style="width:40px" type="submit" >D</button>
+                        </form>
+                        <%}%>
+                        <form action="/deleteList/<%=id%>/<%=productos[i].id%>" method="GET">
+                            <button style="width:40px" type="submit" >❌</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+         <% } %>
+    </ul>
+    <a href="/actualizarLista/<%=id%>" class="d-flex justify-content-center align-items-center" style="text-decoration:none">
+        <h2 class="btnp d-flex justify-content-center align-items-center pb-1">+</h2>
+    </a>
+</div>
+</div>
+</div>
+
+</body>

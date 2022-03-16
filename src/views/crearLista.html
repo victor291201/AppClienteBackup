@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head><%- include('partials/cabecera.html')%></head>
+<body class="bgp1 d-flex align-items-center flex-column justify-content-center">
+    
+    <a href="/inicio" class="d-flex justify-content-center align-items-center flotantei  pb-1" style="text-decoration:none">
+        <h2 class="btnp d-flex justify-content-center align-items-center pt-1 m-0" style="margin:0px">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-reply-fill" viewBox="0 0 16 16">
+                <path d="M5.921 11.9 1.353 8.62a.719.719 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"/>
+              </svg>
+        </h2>
+    </a>
+    <div class="container-fluid ">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <h1 class="text-center mb-4">Crear lista</h1>
+            <div class="card">
+                <div class="card-body">
+                <form action="/crearLista" method="POST">
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Nombre de la lista</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre">
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <button type="submit" href="/" class="btn btn-success">Crear</button>
+                    </div>
+                    
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>

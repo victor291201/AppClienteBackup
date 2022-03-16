@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head><%- include('partials/cabecera.html')%></head>
+<body class="bgp1 d-flex align-items-center flex-column p-5">
+    <a href="/logout" class="d-flex justify-content-center align-items-center flotantei" style="text-decoration:none">
+    
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+          <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+        </svg>
+    </a>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+    <h3 class="mb-4 text-center" >Administrador</h3>
+    
+    <ul class="d-flex justify-content-start align-items-start flex-column px-4 py-1" style="width:100%;list-style:none;overflow:auto">
+        <% for(var i=0; i<tiendas.length; i++) {%>
+            <li>
+                <div class="d-flex justify-content-between" style="width:1270px">
+                    <p style="width:170px"><%= tiendas[i].nombre %></p>
+                    <p style="width:170px"><%= tiendas[i].nombresucursal %></p>
+                    <p style="width:170px"><%= tiendas[i].ciudad %></p>
+                    <p style="width:170px"><%= tiendas[i].direccion %></p>
+                    <p style="width:170px"><%= tiendas[i].region %></p>
+                    <div class="form-check d-flex">
+                        <form action="/admins/<%=tiendas[i].id%>" method="GET">
+                            <button class="me-2" style="width:40px" type="submit" >❌</button>
+                        </form>
+                        <form action="/admins/<%=tiendas[i].id%>" method="POST">
+                            <button style="width:40px" type="submit" >✔️</button>
+                        </form>
+                    </div>
+                </div>
+            </li>
+         <% } %>
+    </ul>
+</div>
+</div>
+</div>
+</body>

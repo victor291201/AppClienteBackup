@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang = "es">
+<head><%- include('partials/cabecera.html')%> </head>
+<body class="bgp1">
+  
+  <a href="/logout" class="d-flex justify-content-center align-items-center flotantei" style="text-decoration:none">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="black" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+      <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+    </svg>
+</a>
+  <div class="container-fluid">
+    <div class="row p-2">
+      <a class="card col-md-3 mb-3 me-3" href= "/crearLista"style="text-decoration:none">
+        <div class="card-body d-flex align-items-center justify-content-center flex-column">
+          <h1 style="color: #ABABAB">+</h1>
+        </div>
+      </a>
+      <% 
+        var real = 0;
+        var est = 0;
+        for(var i=0; i<listas.length; i++) {%>
+        <div class="card col-md-3 mb-3 me-3">
+          <div class="card-body d-flex align-items-center flex-column">
+            <h5 class="card-title"><%= listas[i].nombre %></h5>
+            <ul class="listarea d-flex justify-content-start align-items-start flex-column px-4 py-1">
+              <% for(var e=0; e<listas[i].productos.length; e++) {%>
+                <li><%= listas[i].productos[e].nombre %></li>
+             <% est = est +listas[i].productos[e].precioestimado 
+                real = real +listas[i].productos[e].precioreal
+              } %>
+            </ul>
+            <div class="d-flex align-items-end justify-content-between" style="width:100%">
+              <p class="text-success" style="margin-left:10px"><%= est %></p>
+              <p class="text-danger" style="margin-right:10px"><%= real %></p>
+              <% est = 0; real = 0 %>
+            </div>
+            <a type="button" href="/listas/<%= listas[i].id %>" class="btn btn-success text-center">Editar</a>
+          </div>
+        </div>
+     <% } %>
+      </div>
+    </div>
+      <a class="flotante" href="/insertarLugar">Insertar lugar</a>
+</body>
